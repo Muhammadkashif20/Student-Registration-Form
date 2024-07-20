@@ -46,18 +46,41 @@ function del(btn) {
 }
 
 function edit() {
-    let editInputs=`<input type="text"  id="userName" placeholder="Edit YourName" maxlength="16"><br><br>
-            <input type="email"  id="userEmail" placeholder="Edit Your Email" maxlength="20"><br><br>
-            <input type="text"  id="userAge" placeholder="Edit Your Age" maxlength="2"><br>`
-        Swal.fire({
-            title: 'Edit Your Input Fields 🖊',
-            html:editInputs,
-        })
-        let show=document.getElementById('show')
-        show.textContent=editInputs
 
+    let editInputs = `<input type="text" id="editName" placeholder="Edit Your Name" maxlength="16"><br><br>
+                      <input type="email" id="editEmail" placeholder="Edit Your Email" maxlength="20"><br><br>
+                      <input type="text" id="editAge" placeholder="Edit Your Age" maxlength="2"><br><br>
+                      <button id="okBtn">Ok</button>`;
+    Swal.fire({
+        title: 'Edit Your Input Fields 🖊',
+        html: editInputs,
+        showConfirmButton:false,
+      });
+      let upSno=serialNumber++
+      let upgenId=generateId++
+      setTimeout(()=>{
+        document.getElementById('okBtn').addEventListener('click',()=>{
+            
+            let edName = document.getElementById('editName').value;
+            let edEmail = document.getElementById('editEmail').value;
+            let edAge = document.getElementById('editAge').value
+            let show = document.getElementById('show');
+        show.innerHTML= `<table>
+        <tr>
+                <td class="td-1">${upSno}</td>
+                <td class="td-2">${edName}</td>
+                <td class="td-3">${edEmail}</td>
+                <td class="td-4">${edAge}</td>
+                <td class="td-5">${upgenId}</td>
+                <td class="td-6"><button id="editBtn" onclick="edit()">Edit</button></td>
+                <td class="td-7"><button id="delBtn" onclick="del(this)">Del</button></td>
+                </tr>
+                </table>`;
+                Swal.close()
+            })
+        },100)
+        }
 
-    }
     
 
 

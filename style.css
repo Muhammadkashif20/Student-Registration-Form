@@ -2,7 +2,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     
 }
-#userName , #userEmail , #userAge{
+#userName , #userEmail , #userAge , #editName , #editEmail , #editAge{
     width: 15rem;
     height: 5vh;
     outline: none;
@@ -68,7 +68,7 @@ td{
     height: 3vh;
 }
 
-#edit , #del{
+#edit , #del , #editBtn , #delBtn ,#okBtn{
     width: 4rem;
     height: 6vh;
     background-color: #0379FF;
