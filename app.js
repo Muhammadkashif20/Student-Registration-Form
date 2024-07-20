@@ -5,44 +5,68 @@ let userName=document.getElementById('userName')
 let userEmail=document.getElementById('userEmail')
 let userAge=document.getElementById('userAge')
 let serialNumber=1
-let generateId=111
+let generateId=1654
+let keynoChange=0
 Submit.addEventListener('click',()=>{
+    let storeUsername=userName.value.trim()
+    let storeUseremail=userEmail.value.trim()
+    let storeUserage=userAge.value.trim()
     let upSno=serialNumber++
     let upgenId=generateId++
-    let storeUsername=userName.value
-    let storeUseremail=userEmail.value
-    let storeUserage=userAge.value
-    const storetheValue={upSno,storeUsername,storeUseremail,storeUserage,upgenId}
+    if(storeUsername==='' || storeUseremail==='' || storeUserage===''){
+        alert('Please Enter Empty Field!')
+        return;
+    }
+    const storetheValue={upSno,storeUsername,storeUseremail,storeUserage,upgenId}  // object:-
         let show=document.getElementById('show')
-        show.innerHTML+=`<table border="1px solid black">
-        <tr>
-                <td>${storetheValue.upSno}</td>
-                <td>${storetheValue.storeUsername}</td>
-                <td>${storetheValue.storeUseremail}</td>
-                <td>${storetheValue.storeUserage}</td>
-                <td>${storetheValue.upgenId}</td>
+        show.innerHTML+=`<table>
+        <tr >
+                <td class="td-1">${storetheValue.upSno}</td>
+                <td class="td-2">${storetheValue.storeUsername}</td>
+                <td class="td-3">${storetheValue.storeUseremail}</td>
+                <td class="td-4">${storetheValue.storeUserage}</td>
+                <td class="td-5">${storetheValue.upgenId}</td>
+                <td class="td-6"><button id="edit" onclick="edit()">Edit</button></td>
+                <td class="td-7"><button id="del" onclick="del(this)">Del</button></td>
             </tr>
         </table>`
-        if(storeUsername==''){
-            alert('Please Enter UserName!')
-            show.innerHTML=''
-        }
-        if(storeUseremail==''){
-                 alert('Please Enter UserEmail!')
-            show.innerHTML=''
-        }
-        if(storeUserage==''){
-                 alert('Please Enter UserAge!')
-            show.innerHTML=''
-    }   
-})
-// function add() {
-    
-// }
+        keynoChange++
+       localStorage.setItem(`Student ${keynoChange}`,JSON.stringify(storetheValue))
+    userName.value=''
+    userEmail.value=''
+    userAge.value=''
+ 
 
-// function del() {
-//     let show=document.getElementById('show')
-//     let changeValue=Object.values(show)
-//     let Del=changeValue
-// }
+})
+let delCount=0
+function del(btn) {
+    delCount++
+    let del1row=btn.parentNode.parentNode
+    del1row.remove()
+}
+
+function edit() {
+    let editInputs=`<input type="text"  id="userName" placeholder="Edit YourName" maxlength="16"><br><br>
+            <input type="email"  id="userEmail" placeholder="Edit Your Email" maxlength="20"><br><br>
+            <input type="text"  id="userAge" placeholder="Edit Your Age" maxlength="2"><br>`
+        Swal.fire({
+            title: 'Edit Your Input Fields 🖊',
+            html:editInputs,
+        })
+        let show=document.getElementById('show')
+        show.textContent=editInputs
+
+
+    }
+    
+
+
+
+
+
+
+
+
+
+
     

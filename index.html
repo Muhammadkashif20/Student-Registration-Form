@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thursday</title>
+    <title>Student's | Information</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/icon-removebg-preview.png" type="image/x-icon">
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif;">
+<body> 
+     <div class="container">
     <center>
-        <h1>Student Reg Form</h1>
-        <input type="text" name="" id="userName" placeholder="Enter Your Name"><br><br>
-        <input type="email" name="" id="userEmail" placeholder="Enter Your Email"><br><br> 
-        <input type="number" name="" id="userAge" placeholder="Enter Your Age" ><br><br>
-        <button id="Submit">Submit</button>
-    </center>
-    <center>
-
-        <table border="1px solid black">
-            <br><br>
-            <tr>
-            <td >S.No</td>
-            <td>Student Name</td>
-            <td>Student Email</td>
-            <td>Student Age</td>
-            <td>Student Id</td>
-            <td>Student Edit</td>
-            <td>Student Delete</td>
-        </tr>
-        <br><br>
-        
-    </center>
-        </table>
-        <div id="show">
-
+        <div id="header">
+        <h1>Student's Registration 📝</h1>
+            <input type="text"  id="userName" placeholder="Enter Your Name" maxlength="16"><br><br>
+            <input type="email"  id="userEmail" placeholder="Enter Your Email" maxlength="20"><br><br>
+            <input type="text"  id="userAge" placeholder="Enter Your Age" maxlength="2"><br><br>
+            <button id="Submit">Add Record</button>
         </div>
-
-    <script src="app.js"></script>
+    </center>
+    <center>
+        <br>
+        <hr>
+        <table>
+            <br>
+            <tr >
+            <th class="th-1">S.No</th>
+            <th class="th-2">Student Name</th>
+            <th class="th-3">Student Email</th>
+            <th class="th-4">Student Age</th>
+            <th class="th-5">Student Id</th>
+            <th class="th-6">Edit</th>
+            <th class="th-7">Delete</th>
+        </tr>
+    </center>
+</table>
+<div id="show">
+</div>
+</div>
+<script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
